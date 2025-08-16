@@ -1,0 +1,6 @@
+# .dockerignore
+model/
+uploads/
+*.pth
+__pycache__
+*.pyc

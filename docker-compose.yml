@@ -1,0 +1,28 @@
+﻿version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    volumes:
+      - ./backend/uploads:/app/uploads
+      - ./backend/model:/app/model
+    environment:
+      - MODEL_PATH=/app/model/best_model.pth
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        - REACT_APP_API_BASE_URL=http://backend:5000
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
