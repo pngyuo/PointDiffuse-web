@@ -2,27 +2,41 @@
 
 services:
   backend:
-    build: ./backend
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: pointdiffuse-backend
+    ports:
+      - "5000:5000"
     volumes:
-      - ./backend/uploads:/app/uploads
+      # 如果你有训练好的模型，可以挂载到这里
       - ./backend/model:/app/model
+      - backend_uploads:/app/uploads
     environment:
+      - PYTHONPATH=/app
       - MODEL_PATH=/app/model/best_model.pth
     networks:
-      - app-network
+      - pointdiffuse-network
+    restart: unless-stopped
 
   frontend:
-    build:
+    build: 
       context: ./frontend
+      dockerfile: Dockerfile
       args:
-        - REACT_APP_API_BASE_URL=http://backend:5000
+        REACT_APP_API_BASE_URL: http://localhost:5000
+    container_name: pointdiffuse-frontend
     ports:
       - "3000:80"
     depends_on:
       - backend
     networks:
-      - app-network
+      - pointdiffuse-network
+    restart: unless-stopped
 
 networks:
-  app-network:
+  pointdiffuse-network:
     driver: bridge
+
+volumes:
+  backend_uploads:
