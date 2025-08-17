@@ -22,7 +22,7 @@ A web-based point cloud semantic segmentation application using the PointDiffuse
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/pngyuo/PointDiffuse-web
    cd pointdiffuse-web
    ```
 
