@@ -1,3 +1,6 @@
+### Results
+![Results](./result/result.png)
+
 # PointDiffuse Web Application
 
 A web-based point cloud semantic segmentation application using the PointDiffuse model, built with Flask backend and React frontend.
@@ -147,6 +150,8 @@ pointdiffuse-web/
 │   │   └── App.js           # Main React application
 │   ├── package.json         # Node.js dependencies
 │   └── Dockerfile          # Frontend Docker configuration
+├── result/
+│   ├── result.png  
 └── docker-compose.yml      # Docker Compose configuration
 ```
 
@@ -251,10 +256,6 @@ export FLASK_DEBUG=1  # Backend debug mode
 export REACT_APP_DEBUG=1  # Frontend debug mode
 ```
 
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -268,13 +269,15 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 If you use this implementation, please cite the original PointDiffuse paper:
 
 ```bibtex
-@article{pointdiffuse2024,
-  title={PointDiffuse: Dual-Conditional Diffusion for Point Cloud Semantic Segmentation},
-  author={[Authors]},
-  journal={[Journal]},
-  year={2024}
+@article{he2025pointdiffuse,
+  title={PointDiffuse: A Dual-Conditional Diffusion Model for Enhanced Point Cloud Semantic Segmentation},
+  author={He, Yong and Yu, Hongshan and Feng, Mingtao and Chen, Tongjia and Li, Zechuan and Ulhaq, Anwaar and Anwar, Saeed and Mian, Ajmal Saeed},
+  journal={arXiv preprint arXiv:2503.06094},
+  year={2025}
 }
 ```
+
+**Paper Link**: [https://arxiv.org/abs/2503.06094](https://arxiv.org/abs/2503.06094)
 
 ## 🛟 Support
 
